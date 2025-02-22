@@ -1,3 +1,4 @@
+from django.core.serializers import serialize
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.filters import OrderingFilter
@@ -21,6 +22,13 @@ class RoomAPIView(ModelViewSet):
         return Response(data=output_data,
                         status=status.HTTP_201_CREATED)
 
+    def destroy(self, request, *args, **kwargs):
+        room = self.get_object()
+        serializer = self.get_serializer(room)
+        self.perform_destroy(room)
+        return Response(serializer.data,
+                        status=status.HTTP_200_OK)
+
 
 class ReservationAPIView(ModelViewSet):
     queryset = Reservation.objects.all()
@@ -39,6 +47,13 @@ class ReservationAPIView(ModelViewSet):
         output_data = {'booking_id': reservation.id}
         return Response(data=output_data,
                         status=status.HTTP_201_CREATED)
+
+    def destroy(self, request, *args, **kwargs):
+        reservation = self.get_object()
+        serializer = self.get_serializer(reservation)
+        self.perform_destroy(reservation)
+        return Response(serializer.data,
+                        status=status.HTTP_200_OK)
 
 
 
