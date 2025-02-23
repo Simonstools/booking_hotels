@@ -4,7 +4,7 @@ from django.urls import reverse
 from rest_framework.test import APIClient
 from rest_framework import status
 
-from datetime import date, timedelta, datetime
+from datetime import date, timedelta
 
 from booking_app.models import Room, Reservation
 

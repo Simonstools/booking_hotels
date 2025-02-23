@@ -1,6 +1,4 @@
-from pydantic_settings import BaseSettings, SettingsConfigDict
-
-from pathlib import Path
+from pydantic_settings import BaseSettings
 
 class EnvBaseSettings(BaseSettings):
     class Config:

@@ -1,4 +1,4 @@
-# Hotel booking service
+# EasyB
 
 ## Hotel rooms booking web API
 **For academic purpose only**
@@ -25,3 +25,16 @@ mv .envexample .env
 ```commandline
 docker-compose up --build -d
 ```
+
+**API endpoints**
+
+```
+/api/rooms/
+/api/rooms/{room_id}/
+/api/reservations/{reservation_id}/
+/api/reservations/by_room/{room_id}
+```
+
+**Testing**
+
+*Before run tests, set DB_HOST=localhost in .env file*
